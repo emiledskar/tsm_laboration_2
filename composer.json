@@ -1,9 +1,8 @@
 {
     "name": "tsm/laboration-2",    
-    "type": "",
-    "description": "Implementation of ...",
+    "description": "En applikation skapad i sammband med kursen Teknik för Sociala Medier.",
     "keywords": ["education"],
-    "homepage": "http://www.edskar.se",
+    "homepage": "https://github.com/emiledskar/tsm_laboration_2",
     "license": "MIT",
     "authors": [
         {
