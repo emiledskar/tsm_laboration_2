@@ -1,8 +1,9 @@
 <head>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="vendor/bootflat/bootflat/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/bootflat/bootflat/bootflat/css/bootflat.min.css">
 </head>
-<body>
+<body style="background-color: #E6E9ED;">
 <!-- <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -23,7 +24,4 @@
 		</div>
 	</div>
 </nav> -->
-<div class="container">
-
-		
-	
+<div class="container" style="position: absulote; height: 100vh;">
