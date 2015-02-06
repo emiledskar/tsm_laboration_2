@@ -1,0 +1,21 @@
+{
+    "name": "tsm/laboration-2",    
+    "type": "",
+    "description": "Implementation of ...",
+    "keywords": ["education"],
+    "homepage": "http://www.edskar.se",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emil Edskar",
+            "email": "emiledskar@gmail.com",
+            "homepage": "http://www.edskar.se",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "abraham/twitteroauth": "0.4.1",
+        "bootflat/bootflat": "dev-master"
+    }
+}
