@@ -49,6 +49,8 @@ Kommandot kommer att skapa en mapp med namn **vendor** i ditt projekt och spara 
 
 Nästa steg är att skapa filen index.php och lägga till följande rader:
 ```PHP
+<?php
+session_start();
 require "vendor/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -66,10 +68,16 @@ De två konstanterna **CONSUMER_KEY** & **COMSUMER_SECRET** är unika nycklar so
 *   Name: Applikationens namn, i detta fall blev det *tsm_laboration_2*.
 *   Description: Beskrivning av applikationen.
 *   Website: En länk till sidan du tänk hosta applikationen på eller ett github repo.
-*   Callback URL: En länk dit github skickar dina användare efter att de autentiserat sig (Denna länk kan vara vilken som helst eftersom vi kommer att skicka med en ny länk senare).
+*   Callback URL: En länk dit Twitter skickar dina användare efter att de autentiserat sig (Denna länk kan vara vilken som helst eftersom vi kommer att skicka med en ny länk senare).
 
 För att sedan erhålla de unika nycklarna till applikationen går du in under fliken **Keys and Access Tokens**. Där finns ett avsnitt som heter **Application Settings** och där under finns de nycklar du ska använda. Kopierna dessa två och ersätt de konstanterna **CONSUMER_KEY** & **COMSUMER_SECRET**.
 
+Nästa steg är att skicka ett request till Twitter för att ta emot applikationens **access token**. Detta görs genom följande kodrad:
+```PHP
+$access_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
+```
+
+Det är i detta anrop som den callback som du angav tidigare byts ut. Det är variabeln **OAUTH_CALLBACK** som ska ersättas med den adress du vill att Twitter ska skicka dina användare efter att de autentiserat sig. I detta exemepel sätts callbacken till **callback.php**. Som svar till detta anrop skickar Twitter tillback **oauth_token** & **oauth_token_secret**, dessa bör du spara i en sessions variabel för att senare komma åt efter omdirigeringen till din callback.
 
 
 
