@@ -1,8 +1,10 @@
 Laboration 2 i kursen Teknik för Sociala Medier.
 ------------------------------------------------
-Denna tutorial förutsätter att du som användare har någorlunda kunskaper kring PHP och HTML. Det krävs även att du har erfarenhet av att använda någon form av terminal (typ terminalen i OSX).
+Förutsättningarna för denna tutorial är att du som användare har någorlunda kunskaper kring PHP och HTML. Det krävs även att du har erfarenhet av att använda någon form av terminal (typ terminalen i OSX).
 
 Denna tutorial kommer att gå igenom hur man från grunden bygger upp en enkel applikation för att söka och hämta tweet's från Twitter. Genom att följa denna tutorial kommer du att lära dig grunderna i att komminucera med Twitter's API genom att använda biblioteket **TwitterOAuth**.
+
+I detta repo finns dels denna tutorial men även ett exempel på en färdig applikation som är menat att användas som stöd.
 
 ###Installera Composer (MAC OSX)
 För att hämta hem composer.phar kör följande kommando i terminalen:
