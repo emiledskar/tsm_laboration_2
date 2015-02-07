@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 if( ( strcmp($_SESSION['oauth_token'], $_REQUEST['oauth_token']) != 0 ) ){
-	die('something went worng');
+	header('Location: http://127.0.0.1/laboration_2_tsm/index.php');
 }
 
 $connection->setOauthToken($_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);

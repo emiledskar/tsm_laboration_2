@@ -1,0 +1,20 @@
+body{
+	background-color: #E6E9ED;
+}
+
+.container{
+	position: absulote; 
+	height: 100vh;
+}
+.vertical-center{
+	position: relative; 
+	top: 50%; 
+	transform: translateY(-50%);
+}
+
+.timeline dl dd .circ{
+	background-color: #37bc9b;
+}
+.timeline dl dd .time{
+	color: #37bc9b;
+}

@@ -14,7 +14,7 @@ if( !empty($_POST) ){
 					<div class="input-group form-search">
 						<input name="query" value="'.$_POST['query'].'" class="form-control search-query">
 						<span class="input-group-btn">
-							<button type="submit" class="btn btn-primary" data-type="last">Search</button>
+							<button type="submit" class="btn btn-info" data-type="last">Search</button>
 						</span>
 					</div>
 				</form>
@@ -75,13 +75,13 @@ if( !empty($_POST) ){
 				</div>';
 	}
 }else{
-	echo '<div class="row" style="position: relative; top: 50%; transform: translateY(-50%);">
+	echo '<div class="row vertical-center">
 			<div class="col-xs-4 col-xs-offset-4">
 				<form method="post" action="list-tweets">
 					<div class="input-group form-search">
 						<input name="query" class="form-control search-query">
 						<span class="input-group-btn">
-							<button type="submit" class="btn btn-primary" data-type="last">Search</button>
+							<button type="submit" class="btn btn-info" data-type="last">Search</button>
 						</span>
 					</div>
 				</form>

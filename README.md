@@ -1,9 +1,9 @@
 Laboration 2 i kursen Teknik för Sociala Medier.
 --------
+Denna tutorial förutsätter att du som användare har någorlunda kunskaper kring PHP, HTML och CSS. Det krävs även att du har prövat att använda någon form terminal (typ terminalen i OSX).
 
-I denna tutorial kommer vi att gå igenom hur man från grunden bygger upp en enkel applikation för att söka och hämta tweet's från Twitter. För att utföra detta kommer vi i denna tutorial att bygga applikationen i PHP och använda oss utav biblioteket **TwitterOAuth** för att komminucera med Twitter's API
+I denna tutorial kommer vi att gå igenom hur man från grunden bygger upp en enkel applikation för att söka och hämta tweet's från Twitter. För att utföra detta kommer vi i denna tutorial att bygga applikationen i PHP och använda oss utav biblioteket **TwitterOAuth** för att komminucera med Twitter's API. För att skapa det visuella använder vi oss utav UI paketet **Bootflat**.
 
-Denna tutorial förutsätter att du som användare har någorlunda kunskaper kring PHP och HTML samt erfarenheter av att använda någon form textbaserat gränssnitt (som t.ex. terminalen i OSX).
 
 ### Installera Composer (MAC OSX)
 För att hämta hem composer.phar kör följande kommando i terminalen:
@@ -23,12 +23,20 @@ composer -V
 
 Vilket bör resultera i en utskrift liknanden den nedan:
 ```
-Composer version 1.0-dev (825*******************************f6f) 2015-01-20 16:39:06
+Composer version 1.0-dev (8***********************************f) 2015-01-20 16:39:06
 ```
 
 ### Skapa composer.json
-För att tala om för composer vilka dependencies som vår applikation har så skapar vi en composer.json fil. I denna fil anges först egenskaper för vår applikation/paket och som minst måste vi ange ett namn på applikationen/paketet och en kort beskrivning. De dependencies som vi vill använda oss utav lägger vi under ``"require"``
 
+För att tala om för composer vilka dependencies som vår applikation har så skapar vi en composer.json fil. I denna fil anges först egenskaper för vår applikation/paket och som minst måste vi ange ett namn på applikationen/paketet och en kort beskrivning. De dependencies som vi vill använda oss utav lägger vi under ``"require: {"``. I detta fall har jag lagt till ``"php": ">=5.4.0",``, ``"abraham/twitteroauth": "0.4.1",`` & ``"bootflat/bootflat": "2.0.4"``. Kom ihåg att separerar varje raderna med ett komma. När du laggt till dessa tre rader i `require` så sparar du filen. Nu är det dags att validera composer.json så att det inte är något fel i filen. I terminalfönstret skriver du då:
+```
+composer validate
+```
+
+Detta bör genererar utskriften ``./composer.json is valid``
+
+
+Här nedan ser ni ett exempel på hur en composer.json fil kan se ut.
 ```JSON
 {
     "name": "tsm/laboration-2",    
@@ -52,8 +60,24 @@ För att tala om för composer vilka dependencies som vår applikation har så s
 }
 ```
 
+
+
 ###Installera Twitter oauth med composer
+För att installera **TwitterOAuth** och **Bootflat** så börjar vi med att köra kommandot:
+```
+composer install --no-dev
+```
+Kommandot kommer att skapa en vendor mapp i ditt projekt och spara ner respektive paket till den mappen.
+
+För att sedan använda oss utav **TwitterOAuth** i projektet så lägger vi till följande rader:
+```
+require "vendor/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+```
 
 ###Upprätthålla kommunikation med Twitter
 
+
 ###slutord, vad kan man göra sen 
+
