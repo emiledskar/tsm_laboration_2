@@ -33,34 +33,12 @@ För att tala om för composer vilka dependencies som vår applikation har så s
 composer validate
 ```
 
-Detta bör genererar utskriften ``./composer.json is valid``
-
-
-Här nedan ser ni ett exempel på hur en composer.json fil kan se ut.
-```JSON
-{
-    "name": "tsm/laboration-2",    
-    "description": "En applikation skapad i sammband med kursen Teknik för Sociala Medier.",
-    "keywords": ["education"],
-    "homepage": "https://github.com/emiledskar/tsm_laboration_2",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Emil Edskar",
-            "email": "emiledskar@gmail.com",
-            "homepage": "http://www.edskar.se",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0",
-        "abraham/twitteroauth": "0.4.1",
-        "bootflat/bootflat": "dev-master"
-    }
-}
+Detta bör genererar utskriften 
+```
+./composer.json is valid
 ```
 
-
+composer.json som finns med bland projektets filer kan användas som mall.
 
 ###Installera Twitter oauth med composer
 För att installera **TwitterOAuth** och **Bootflat** så börjar vi med att köra kommandot:
