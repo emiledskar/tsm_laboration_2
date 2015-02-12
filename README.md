@@ -4,7 +4,7 @@ Förutsättningarna för denna tutorial är att du som användare har någorlund
 
 Denna tutorial kommer att gå igenom hur man från grunden bygger upp en enkel applikation för att söka och hämta tweet's från Twitter. Genom att följa denna tutorial kommer du att lära dig grunderna i att komminucera med Twitter's API genom att använda biblioteket **TwitterOAuth**.
 
-I detta repo finns dels denna tutorial men även ett exempel på en enkel applikation för att visa exempel på vad som går att göra.
+I detta repo finns dels denna tutorial men även ett exempel på en enkel applikation för att visa exempel på vad som går att göra. Det grafiska i applikationen är byggt med hjälp av [Bootflat](http://bootflat.github.io/).
 
 ###Installera Composer (MAC OSX)
 För att hämta hem composer.phar kör följande kommando i terminalen:
