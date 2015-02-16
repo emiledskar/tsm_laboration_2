@@ -5,7 +5,7 @@ Laboration 2 i kursen Teknik för Sociala Medier.
 
 Förutsättningarna för denna tutorial är att du som användare har någorlunda kunskaper kring PHP och HTML. Det krävs även att du har erfarenhet av att använda någon form av terminal (typ terminalen i OSX).
 
-Denna tutorial kommer att gå igenom hur man från grunden bygger upp en enkel applikation för att hämta och söka bland användardata från Twitter. Det första du får lära dig är att använda dig utav dependency managern Composer för att lägga till paket/bibliotek i ditt projektet. När du satt upp ditt projekt med hjälp av Composer kommer du att lära dig hur du autentisera din applikation mot Twitter's API med hjälp av biblioteket **TwitterOAuth**. Till sist kommer du lära dig hur du gör anrop mot Twitter's API för att hämta användardata.
+Denna tutorial kommer att gå igenom hur man från grunden bygger upp en enkel applikation för att hämta och söka bland användardata från Twitter. Det första du får lära dig är att använda dig utav dependency managern Composer för att lägga till paket/bibliotek i ditt projektet. När du satt upp ditt projekt med hjälp av Composer kommer du att lära dig hur du autentisera din applikation mot Twitter's API med hjälp av biblioteket **[TwitterOAuth](https://twitteroauth.com/)**. Till sist kommer du lära dig hur du gör anrop mot Twitter's API för att hämta användardata.
 
 I detta repo finns dels denna tutorial men även ett exempel på en enkel applikation för att visa exempel på vad som går att göra. Det grafiska i applikationen är byggt med hjälp av [Bootflat](http://bootflat.github.io/).
 
