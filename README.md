@@ -1,10 +1,26 @@
 Laboration 2 i kursen Teknik för Sociala Medier.
 ------------------------------------------------
+
+##Inledning
+
 Förutsättningarna för denna tutorial är att du som användare har någorlunda kunskaper kring PHP och HTML. Det krävs även att du har erfarenhet av att använda någon form av terminal (typ terminalen i OSX).
 
-Denna tutorial kommer att gå igenom hur man från grunden bygger upp en enkel applikation för att söka och hämta tweet's från Twitter. Genom att följa denna tutorial kommer du att lära dig grunderna i att komminucera med Twitter's API genom att använda biblioteket **TwitterOAuth**.
+Denna tutorial kommer att gå igenom hur man från grunden bygger upp en enkel applikation för att hämta och söka bland användardata från Twitter. Det första du får lära dig är att använda dig utav dependency managern Composer för att lägga till paket/bibliotek i ditt projektet. När du satt upp ditt projekt med hjälp av Composer kommer du att lära dig hur du autentisera din applikation mot Twitter's API med hjälp av biblioteket **TwitterOAuth**. Till sist kommer du lära dig hur du gör anrop mot Twitter's API för att hämta användardata.
 
 I detta repo finns dels denna tutorial men även ett exempel på en enkel applikation för att visa exempel på vad som går att göra. Det grafiska i applikationen är byggt med hjälp av [Bootflat](http://bootflat.github.io/).
+
+##Sätta upp projektet
+Nu sätter vi igång!
+
+*   Starta ett nytt terminalfönster.
+*   Använd kommandot ``cd`` för ta dig fram till den sökväg där du vill att ditt projekt ska sparas.
+*   Skapa en ny mapp för ditt projekt genom att skriva ``mkdir "app_namn"`` och gå sedan in i den mappen.
+
+Första steget är nu klart, du är nu redo att gå till nästa avsnitt för att installera Composer.
+
+
+##Composer
+[Composer](https://getcomposer.org/) är en dependency manager för PHP som hjälper dig att enkelt uppdatera och installera paket eller bibliotek som du vill använda dig av i ett projekt.
 
 ###Installera Composer (MAC OSX)
 För att hämta hem composer.phar kör följande kommando i terminalen:
@@ -28,8 +44,9 @@ Composer version 1.0-dev (8***********************************f) 2015-01-20 16:3
 ```
 
 ###Skapa composer.json
+*composer.json som finns med bland projektets filer kan användas som mall.*
 
-För att tala om för composer vilka dependencies som din applikation ska användas så behöver du skapa en composer.json fil. I denna fil anger du först egenskaper för din applikation/paket. Som minst måste du ange ett namn på applikationen/paketet och en kort beskrivning. De dependencies som du vill använda lägger du under ``"require: {"``. I detta fall ska du lägga till ``"php": ">=5.4.0",`` & ``"abraham/twitteroauth": "0.4.1",``. Kom ihåg att separerar varje rad med ett komma. När du laggt till dessa två rader i *require* så sparar du filen. Nu är det dags att validera composer.json så att det inte är något fel i filen. I terminalfönstret skriver du:
+För att tala om för composer vilka dependencies som din applikation ska användas så behöver du skapa en composer.json fil. I denna fil anger du först egenskaper för din applikation/paket. Som minst måste du ange ett namn på applikationen/paketet och en kort beskrivning. De dependencies som du vill använda lägger du under ``"require: {"``. I detta fall ska du lägga till ``"php": ">=5.4.0",`` & ``"abraham/twitteroauth": "0.4.1",``. Kom ihåg att separerar varje rad med ett komma. När du lagt till dessa två rader i *require*så sparar du filen. Nu är det dags att validera composer.json så att det inte är något fel i filen. I terminalfönstret skriver du:
 ```
 composer validate
 ```
@@ -39,10 +56,9 @@ Detta bör genererar utskriften
 ./composer.json is valid
 ```
 
-*composer.json som finns med bland projektets filer kan användas som mall.*
 
 ###Installera TwitterOAuth med hjälp av composer
-För att installera **TwitterOAuth** och **Bootflat** så börjar du med att köra kommandot:
+För att installera **TwitterOAuth** så börjar du med att köra kommandot:
 ```
 composer install --no-dev
 ```
@@ -58,6 +74,9 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 ```
 
 **TwitterOAuth** är nu installerat.
+
+
+##Uppbyggnad av applikation
 
 ###Upprätthålla kommunikation med Twitter
 
@@ -102,7 +121,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
 ```
 
-Samma **CONSUMER_KEY** & **CONSUMER_SECRET** som du angav tidigare. Ange även de access token som tidigare sparades i sessioner som inparametrar till den nya instansen av **TwitterOAuth** klassen.
+Använd samma **CONSUMER_KEY** & **CONSUMER_SECRET** som du angav tidigare. Ange även de access token som tidigare sparades i sessioner som inparametrar till den nya instansen av **TwitterOAuth** klassen.
 
 Det sista som nu behöver göras för att få tillstånd att hämta information om användaren från Twitter är att hämta nya access tokens som är kopplade till användaren. Detta gör du med följande kod:
 ```
@@ -114,5 +133,18 @@ Sätt dessa som **TwitterOAuth** objektets access tokens:
 $connection->setOauthToken($access_token['oauth_token'], $access_token['oauth_token_secret']);
 ```
 
-Grattis! Du har nu färdigställt autentiseringen mot Twitter och kan börja skicka requests för att hämta diverse data från Twitter.
+Du har nu färdigställt autentiseringen mot Twitter och kan börja skicka requests för att hämta data från Twitter.
 
+###Ett enkelt exempel
+För att hämta data från Twitter använder du funktionen ``get()`` ifrån **TwitterOAuth**. Med denna metod anger du vilken av [Twitter's API funktioner](https://dev.twitter.com/rest/public) du vill hämta data ifrån. Ett sådant anrop kan till exempel se ut så här:
+```PHP
+$connection->get('search/tweets', array( 'q' => 'PHP', 'count' => 100));
+```
+Detta anrop söker efter tweet's som matchar en söksträng. Här anges söksträngen i variabeln 'q' och i detta anrop söker vi efter tweet's som innehåller ordet PHP. I anropet kan du också skicka med ytterliggare parametrar beroende på vilken funktion du anropar. Fler funktioner samt beskrivning av vilka parametrar de tar emot finner du på [Sidan för twitter's API](https://dev.twitter.com/rest/public).
+
+##Avslut
+
+Grattis! Du har nu lärt dig att:
+*   Använda Composer
+*   Autentisera dig mot Twitter
+*   Hämta data från Twitter
